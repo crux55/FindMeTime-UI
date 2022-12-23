@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import NameForm from './new_task_form'
+import CreateTaskForm from './newTaskForm'
 import reportWebVitals from './reportWebVitals';
+import GetTasks from './getTasks';
+import ListEventCards from './gcalApp';
+import AddEvent from './gcalCreateEvent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NameForm />
-    <App />
+    <CreateTaskForm />
+    {/* <AddEvent /> */}
+    <GetTasks />
+    <ListEventCards />
   </React.StrictMode>
 );
 

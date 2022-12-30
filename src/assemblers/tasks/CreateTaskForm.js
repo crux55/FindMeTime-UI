@@ -1,11 +1,11 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
-import * as Constants from './utils/constants'
+import * as Constants from '../../constants/url'
 
 class CreateTaskForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {title: '', description: '', duration: ''};
+      this.state = {title: '', description: '', duration: 0};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -21,7 +21,7 @@ class CreateTaskForm extends React.Component {
           {
             "title": this.state.title,
             "description": this.state.description,
-            "duration": this.state.duration
+            "duration": Number(this.state.duration)
           }
         )
         console.log(JSON.stringify(data))
@@ -54,7 +54,7 @@ class CreateTaskForm extends React.Component {
           </label>
           <label>
             Duration:
-            <input type="text" name="duration" value={this.state.duration} onChange={this.handleChange} />
+            <input type="number" name="duration" value={this.state.duration} onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
         </form>

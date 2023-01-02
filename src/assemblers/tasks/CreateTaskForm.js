@@ -36,14 +36,14 @@ class CreateTaskForm extends React.Component {
             if (response.status >= 200 && response.status < 300) {
                 return response;
             } else {
-            console.log('Somthing happened wrong');
+            alert(response);
             }
         }).catch(err => err);
     }
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>        
+	<form onSubmit={this.handleSubmit}>        
           <label>
             Title:
             <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />

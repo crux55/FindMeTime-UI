@@ -2,6 +2,8 @@ import * as DayConstants from '../../constants/planner'
 import * as Constants from "../../constants/url"
 import React,{useState,useEffect} from 'react';
 
+import './FindTimeView.css'
+
  //https://codepen.io/ruphaa/pen/Kborrj
 function Day({ findTimeResponse }) {
 
@@ -13,6 +15,9 @@ function Day({ findTimeResponse }) {
 
   return (
     <>
+<div class="paper">
+  <div class="lines">
+    <div class="text" contenteditable spellcheck="false">
         <div className="date">
             <h2>This week</h2>
             <p>{findTimeResponse.startDate} - {findTimeResponse.endDate}</p>
@@ -27,24 +32,27 @@ function Day({ findTimeResponse }) {
             <h2>Top {DayConstants.tasksToDisplay} tasks</h2>
             {findTimeResponse.tasks.slice(0, DayConstants.tasksToDisplay).map((task) => task.text)}
         </div>
-
-        <div className="Week">Proposed tasks for the week
+        <div className="Week"><h2>Proposed tasks for the week</h2>
             {findTimeResponse.week.map((d) => {
                 return(<div class="dayView" key={d.date}>
-                    <div class="day"> {d.day} </div>
-                    <div class="date"> {d.date} </div>
+                    <div class="day"><h3> {d.day}</h3> </div>
+                    <div class="date"><h3> {d.date} </h3> </div>
 			{d.sortedItems.map((item) => {
 				return(
 					<>
-						<div className="taskTime">{item.startTime}-{item.endTime}</div>
-						<div className="TaskTitle">{item.title}</div>
+						<div className="taskTime"><h4>{item.startTime}-{item.endTime} {item.title} </h4></div>
 					</>
 )
 			})}
-                </div>)
+        </div>)
             })}
-        </div>
-
+    </div>
+  </div>
+</div>
+  <div class="holes hole-top"></div>
+  <div class="holes hole-middle"></div>
+  <div class="holes hole-bottom"></div>
+</div>
     </>
   );
 }

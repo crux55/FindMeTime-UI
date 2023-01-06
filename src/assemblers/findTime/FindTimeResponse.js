@@ -6,9 +6,9 @@ import * as Constants from "../../constants/url"
 function GetTasks() {
   const [findTimeResponse, setFindTimeResponse] = useState();
   useEffect(() => {
-    fetch(Constants.GET_ALL_TASKS_ENDPOINT)
+    fetch(Constants.FIND_TIME_ENDPOINT)
       .then(res => res.json())
-      .then(data => setItems(setFindTimeResponse));
+      .then(data => setFindTimeResponse(data));
   }, []);
   
   return (

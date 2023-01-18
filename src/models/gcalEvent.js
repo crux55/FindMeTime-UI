@@ -1,4 +1,4 @@
-function Event(summary, startTime, endTime){
+export default function GcalEvent(summary, startTime, endTime){
     return {
         summary: summary,
         location: "",
@@ -15,7 +15,7 @@ function Event(summary, startTime, endTime){
         reminders: {
           useDefault: false,
           overrides: [
-            { method: "email", minutes: 24 * 60 },
+            // { method: "email", minutes: 24 * 60 },
             { method: "popup", minutes: 10 },
           ],
         },

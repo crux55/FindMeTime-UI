@@ -10,7 +10,7 @@ const Navbar= () =>{
       <Link to="/create_task">Create Task</Link>
     </li>
     <li>
-      <Link to="/find_time">Find Time</Link>
+      <Link to="/create_goal">Create goal</Link>
     </li>
   </div>
   );

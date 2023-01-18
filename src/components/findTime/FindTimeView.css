@@ -11,7 +11,7 @@ body {
 }
 .paper {
   position: absolute;
-  height: 550px;
+  height: 200%;
   width: 450px;
   background: rgba(255,255,255,0.9);
   margin: -275px -225px;

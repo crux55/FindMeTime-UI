@@ -1,12 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import CreateTaskForm from './components/tasks/CreateTaskForm'
-// import reportWebVitals from './reportWebVitals';
-import GetTasks from './assemblers/tasks/TaskCards';
-// import ListEventCards from './components/calendar/GcalEventCards';
-// import GCalAddEvent from './hooks/GcalCreateEvent';
-import NavbarView from './assemblers/NavBar';
+import NavbarView from './components/NavBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

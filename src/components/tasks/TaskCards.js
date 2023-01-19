@@ -51,7 +51,6 @@ function RenderTaskCards({ items }) {
                         checked={setCheckedState[item.TaskId]} 
                         onChange={() => handleOnChange(item.TaskId)}/>
               </div>
-          // <li key={item.TaskId}> Title: {item.Title}, Description: {item.Description}, Duration: {item.Duration}</li>
         ))}
         <input type="submit" value="Find time for these tasks" />
       </form>

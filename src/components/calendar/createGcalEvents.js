@@ -1,12 +1,8 @@
 import { useLocation } from "react-router-dom";
-import React,{useState,useEffect} from 'react';
-import CreateGcalEvents from '../../hooks/gcalUtils'
+import CreateGcalEvents from '../../utils/gcalUtils'
 
 function CreateGcalEventsPage(){
     const location = useLocation()
-    // useEffect(() => {
-    //     createEvent(location.state)
-    // }, []);
 
     return(
         <CreateGcalEvents props={location}/>

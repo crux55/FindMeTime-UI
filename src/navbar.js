@@ -12,6 +12,9 @@ const Navbar= () =>{
     <li>
       <Link to="/create_goal">Create goal</Link>
     </li>
+    <li>
+      <Link to="/create_tag">Create tag</Link>
+    </li>
   </div>
   );
 }

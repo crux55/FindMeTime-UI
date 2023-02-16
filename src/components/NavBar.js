@@ -6,6 +6,7 @@ import GetTasks from './tasks/TaskCards';
 import Navbar from '../navbar';
 import Day from './findTime/day'
 import CreateGcalEventsPage from '../components/calendar/createGcalEvents'
+import CreateTagForm from './tags/create_tag_form';
 
 function NavbarView() {
   return (
@@ -15,6 +16,7 @@ function NavbarView() {
         <Route path='/' exact element={<GetTasks/>} />
         <Route path='/create_task' element={<CreateTaskForm/>} />
         <Route path='/create_goal' element={<CreateGoalForm/>} />
+        <Route path='/create_tag' element={<CreateTagForm/>} />
         <Route path='/find_time' element={<Day/>} />
         <Route path='/create_gcal_events' element={<CreateGcalEventsPage/>} />
       </Routes>

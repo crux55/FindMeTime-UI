@@ -1,5 +1,5 @@
 
-export const FMT_ROOT = "http://localhost:8080"
+export const FMT_ROOT = "http://192.168.1.25:8080"
 export const FMT_API = FMT_ROOT + "/api"
 export const FMT_V1_ROOT = FMT_API + "/v1"
 
@@ -11,5 +11,7 @@ export const GET_ALL_TASKS_ENDPOINT = TASKS_ENDPOINT + "/all"
 
 export const GOALS_ENDPOINT = FMT_V1_ROOT + "/goal"
 export const CREATE_GOALS_ENDPOINT = GOALS_ENDPOINT + "/create"
+
+export const CREATE_TAG_ENDPOINT = FMT_V1_ROOT + "/tags"
 
 export const GET_LOVELY_QUOTE_ENDPOINT = "https://zenquotes.io/api/today"

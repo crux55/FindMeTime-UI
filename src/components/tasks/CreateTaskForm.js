@@ -1,27 +1,53 @@
-import React from 'react';
-import fetch from 'isomorphic-fetch';
+import React, { useEffect, useState } from "react"
+import Select from 'react-select'
+import fetch from 'isomorphic-fetch'
 import * as Constants from '../../constants/url'
 
-class CreateTaskForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {title: '', description: '', duration: 0};
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
+
+function CreateTaskForm(){
+    const [state, setState] = useState({title: '', description: '', duration: 0})
+    const [tagsOnly, setTagsOnly] = useState()
+    const [tagsNot, setTagsNot] = useState()
+    const [options, setOptions] = useState()
+
+
+    useEffect(() => {
+      fetch(Constants.GET_ALL_TAGS_ENPOINT, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+      })
+        .then(res => 
+          res.json()
+          )
+        .then(data => {
+          var tmp = []
+          console.log(data)
+          data.forEach(tag => {
+            tmp.push({label: tag.Name, value: tag.Id})
+          });
+          setOptions(tmp)
+        })
+    }, [])
+
   
-    handleChange(event) {
-      const { name, value } = event.target;
-      this.setState({
+    function handleChange(event){
+      const { name, value } = event.target
+      setState({
         [name]: value,
-      });
+      })
     }
-    handleSubmit(event) {
+
+    function handleSubmit(event) {
         var data =  JSON.stringify(
           {
-            "title": this.state.title,
-            "description": this.state.description,
-            "duration": Number(this.state.duration)
+            "title": state.title,
+            "description": state.description,
+            "duration": Number(state.duration),
+            "tagsOnly": tagsOnly,
+            "tagsNot" : tagsNot
           }
         )
         console.log(JSON.stringify(data))
@@ -34,32 +60,39 @@ class CreateTaskForm extends React.Component {
             }
         }).then(response => {
             if (response.status >= 200 && response.status < 300) {
-                return response;
+                return response
             } else {
-            alert(response);
+            alert(response)
             }
-        }).catch(err => err);
+        }).catch(err => err)
     }
+
   
-    render() {
-      return (
-	<form onSubmit={this.handleSubmit}>        
+      return (options && 
+	<form onSubmit={handleSubmit}>        
           <label>
             Title:
-            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+            <input type="text" name="title" value={state.title} onChange={handleChange} />
           </label>
           <label>
             Description:
-            <input type="text" name = "description" value={this.state.description} onChange={this.handleChange} />
+            <input type="text" name = "description" value={state.description} onChange={handleChange} />
           </label>
           <label>
             Duration:
-            <input type="number" name="duration" value={this.state.duration} onChange={this.handleChange} />
+            <input type="number" name="duration" value={state.duration} onChange={handleChange} />
+          </label>
+          <label>
+            Can only be done during:
+            <Select onChange={value => setTagsOnly(value)} isMulti options={options} />
+          </label>
+          <label>
+            Can not be done during:
+            <Select onChange={value => setTagsNot(value)} isMulti options={options} />
           </label>
           <input type="submit" value="Submit" />
         </form>
-      );
-    }
-  }
+      )
+}
 
-  export default CreateTaskForm;
+  export default CreateTaskForm

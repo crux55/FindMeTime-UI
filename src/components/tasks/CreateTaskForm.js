@@ -6,8 +6,8 @@ import * as Constants from '../../constants/url'
 
 function CreateTaskForm(){
     const [state, setState] = useState({title: '', description: '', duration: 0})
-    const [tagsOnly, setTagsOnly] = useState()
-    const [tagsNot, setTagsNot] = useState()
+    const [tagsOnly, setTagsOnly] = useState([])
+    const [tagsNot, setTagsNot] = useState([])
     const [options, setOptions] = useState()
 
 
@@ -34,10 +34,8 @@ function CreateTaskForm(){
 
   
     function handleChange(event){
-      const { name, value } = event.target
-      setState({
-        [name]: value,
-      })
+      const { name, value } = event.target;
+      state[name] = value
     }
 
     function handleSubmit(event) {
@@ -46,8 +44,8 @@ function CreateTaskForm(){
             "title": state.title,
             "description": state.description,
             "duration": Number(state.duration),
-            "tagsOnly": tagsOnly,
-            "tagsNot" : tagsNot
+            "tagsOnly": tagsOnly.map(to => {return {Id : to.value}}),
+            "tagsNot" : tagsNot.map(tn => {return {Id: tn.value}})
           }
         )
         console.log(JSON.stringify(data))
@@ -72,15 +70,15 @@ function CreateTaskForm(){
 	<form onSubmit={handleSubmit}>        
           <label>
             Title:
-            <input type="text" name="title" value={state.title} onChange={handleChange} />
+            <input type="text" name="title" onChange={handleChange} />
           </label>
           <label>
             Description:
-            <input type="text" name = "description" value={state.description} onChange={handleChange} />
+            <input type="text" name = "description" onChange={handleChange} />
           </label>
           <label>
             Duration:
-            <input type="number" name="duration" value={state.duration} onChange={handleChange} />
+            <input type="number" name="duration" onChange={handleChange} />
           </label>
           <label>
             Can only be done during:

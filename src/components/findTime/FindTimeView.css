@@ -7,8 +7,9 @@
 body {
   margin: 0;
   padding: 0;
-  background: lightgoldenrodyellow;
+  background: #e8f5e9; /* pastel green */
 }
+
 .paper {
   position: absolute;
   height: 200%;
@@ -18,21 +19,25 @@ body {
   left: 50%;
   top: 50%;
   box-shadow: 0px 0px 5px 0px #888;
+  border-radius: 15px; /* rounded corners */
 }
+
 .paper::before {
   content: '';
   position: absolute;
   left: 45px;
   height: 100%;
   width: 2px;
-  background: rgba(255,0,0,0.4);
+  background: rgba(165,214,167,0.4); /* pastel green */
 }
+
 .lines {
   margin-top: 40px;
   height: calc(100% - 40px);
   width: 100%;
-  background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
+  background-image: repeating-linear-gradient(white 0px, white 24px, #a5d6a7 25px); /* pastel green */
 }
+
 .text {
   position: absolute;
   top: 65px;
@@ -44,21 +49,25 @@ body {
   overflow: hidden;
   outline: none;
 }
+
 .holes {
   position: absolute;
   left: 10px;
   height: 25px;
   width: 25px;
-  background: lightgoldenrodyellow;
+  background: #e8f5e9; /* pastel green */
   border-radius: 50%;
   box-shadow: inset 0px 0px 2px 0px #888;
 }
+
 .hole-top {
   top: 10%;
 }
+
 .hole-middle {
   top: 50%;
 }
+
 .hole-bottom {
   bottom: 10%;
 }

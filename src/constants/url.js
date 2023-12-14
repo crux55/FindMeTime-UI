@@ -13,5 +13,6 @@ export const GOALS_ENDPOINT = FMT_V1_ROOT + "/goal"
 export const CREATE_GOALS_ENDPOINT = GOALS_ENDPOINT + "/create"
 
 export const CREATE_TAG_ENDPOINT = FMT_V1_ROOT + "/tags"
+export const GET_ALL_TAGS_ENPOINT = FMT_V1_ROOT + "/tags"
 
 export const GET_LOVELY_QUOTE_ENDPOINT = "https://zenquotes.io/api/today"

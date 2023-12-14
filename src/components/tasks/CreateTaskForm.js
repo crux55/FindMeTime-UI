@@ -23,23 +23,24 @@ function CreateTaskForm(){
           res.json()
           )
         .then(data => {
-          var tmp = []
-          console.log(data)
-          data.forEach(tag => {
-            tmp.push({label: tag.Name, value: tag.Id})
-          });
+          let tmp = []
+          if (data !== undefined && data !== null) {
+            data.forEach(tag => {
+              tmp.push({ label: tag.Name, value: tag.Id });
+            });
+          }
           setOptions(tmp)
         })
     }, [])
 
   
-    function handleChange(event){
+    function handleChange(event) {
       const { name, value } = event.target;
-      state[name] = value
+      setState(prevState => ({ ...prevState, [name]: value }));
     }
 
     function handleSubmit(event) {
-        var data =  JSON.stringify(
+        const data =  JSON.stringify(
           {
             "title": state.title,
             "description": state.description,
@@ -48,7 +49,7 @@ function CreateTaskForm(){
             "tagsNot" : tagsNot.map(tn => {return {Id: tn.value}})
           }
         )
-        console.log(JSON.stringify(data))
+        console.log(data)
         return fetch(Constants.CREATE_TASKS_ENDPOINT, {
             method: 'POST',
             mode: 'cors',
@@ -62,7 +63,7 @@ function CreateTaskForm(){
             } else {
             alert(response)
             }
-        }).catch(err => err)
+        }).catch(err => console.log(error))
     }
 
   

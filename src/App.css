@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #e8f5e9; /* pastel green */
+  font-family: Arial, sans-serif;
 }
 
 .App-logo {
@@ -14,18 +16,19 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #a5d6a7; /* darker pastel green */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 25px; /* increased border-radius */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow */
 }
 
 .App-link {
-  color: #61dafb;
+  color: #4caf50; /* pastel green */
 }
 
 @keyframes App-logo-spin {
@@ -38,15 +41,123 @@
 }
 
 .card {
-	background-color: #e28843e3;
+  background-color: #c8e6c9; /* lighter pastel green */
   border-style: solid;
-  border-color: #78a5ff;
-	border-radius: 15px;
+  border-color: #a5d6a7; /* darker pastel green */
+  border-radius: 25px; /* increased border-radius */
   border-width: 5px;
-	max-width: 400px;
-	margin: 3% auto;
-	position: relative;
-	padding: 15px;
-	color: #444;
-	cursor: pointer;
+  max-width: 400px;
+  margin: 3% auto;
+  position: relative;
+  padding: 15px;
+  color: #444;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.tagcard {
+  background-color: #c8e6c9; /* lighter pastel green */
+  border-radius: 25px; /* increased border-radius */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: 2em auto;
+  padding: 2em;
+  color: #444;
+}
+
+.tagcard label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1em; /* relative font size */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tagcard input[type="text"], .tagcard input[type="number"] {
+  padding: 0.5em;
+  border: 1px solid #a5d6a7; /* darker pastel green */
+  border-radius: 25px; /* increased border-radius */
+  max-width: 50%;
+}
+
+.tagcard button {
+  background-color: #a5d6a7; /* darker pastel green */
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* increased border-radius */
+  padding: 0.5em 1em;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.tagcard button.remove {
+  background-color: #ff8a80; /* red */
+}
+
+.tagcard button.add {
+  background-color: #64dd17; /* green */
+}
+
+.tagcard input[type="submit"] {
+  background-color: #a5d6a7; /* darker pastel green */
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* increased border-radius */
+  padding: 0.5em 1em;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.button.add {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #77dd77; /* pastel green */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.submit-button {
+  background-color: #77dd77; /* pastel green */
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.submit-button:active {
+  transform: scale(0.9);
+}
+
+.error-banner {
+  background-color: #ffffcc; /* yellow */
+  color: #ff0000; /* red */
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.error-banner button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }

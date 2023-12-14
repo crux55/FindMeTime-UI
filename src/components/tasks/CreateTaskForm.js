@@ -63,7 +63,7 @@ function CreateTaskForm(){
             } else {
             alert(response)
             }
-        }).catch(err => console.log(error))
+        }).catch(err => console.log(err))
     }
 
   

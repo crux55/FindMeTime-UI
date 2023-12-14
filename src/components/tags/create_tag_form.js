@@ -33,6 +33,7 @@ function CreateTagForm(){
       
   
     function handleChange(event) {
+      event.preventDefault();
       const { name, value } = event.target;
       setState(prevState => ({ ...prevState, [name]: value }));
     }
@@ -87,7 +88,7 @@ function CreateTagForm(){
           </label>
         </div>
         {timeSlots.map((element, index) => (
-          <div className="tagcard" key={uuid()}>
+          <div className="tagcard" key={index}>
             <li>
               <label>
                 Day start index:

@@ -6,7 +6,7 @@ import { gapi } from 'gapi-script';
 
 export const  CreateGcalEvents = (props) =>{
   async function initiate() {
-    const calendarID = "bukpvq98654ngvtmmjjhbl59rg@group.calendar.google.com"
+    const calendarID = ""
     let findTimeResponse = props.props.state
     Object.entries(findTimeResponse.Week.Days).map(([date, day]) => {
       if (day['SortedItems']){
@@ -21,7 +21,7 @@ export const  CreateGcalEvents = (props) =>{
               body: event,
               headers: {
                 "Content-type": "application/json",
-                Authorization: `Bearer ya29.a0AX9GBdWaLRgV7AI2abBSK_AwUquCDdTFgFuphPfV04omU5F6KlqmI_wDRTGqtuEiIrOT64alUF3QZR1sS5QWe9hnpHCMePCZo2829QHIXxlEWdzdYtxFaq-xbFoaCAZRkGJEjBU9kK06QmkRWaUZaxRIheteaCgYKAXASARESFQHUCsbCLCIhsGXFYe01HJwR8jow4w0163`,
+                Authorization: `Bearer `,
               }
             })
           .then(

@@ -1,8 +1,8 @@
 import { gapi } from "gapi-script";
 import { useState, useEffect } from 'react';
 
-const calendarID = "bukpvq98654ngvtmmjjhbl59rg@group.calendar.google.com"
-const apiKey = "AIzaSyAjmgXRMnDc-kRUfyB8ivyZEGv4P8ZjLlE"
+const calendarID = ""
+const apiKey = ""
 
 export default function useGetEvents () {
   const [eventData, setEventData] = useState();

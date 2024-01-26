@@ -1,5 +1,5 @@
 
-export const FMT_ROOT = "http://localhost:8080"
+export const FMT_ROOT = "http://192.168.1.114:8080"
 export const FMT_API = FMT_ROOT + "/api"
 export const FMT_V1_ROOT = FMT_API + "/v1"
 
